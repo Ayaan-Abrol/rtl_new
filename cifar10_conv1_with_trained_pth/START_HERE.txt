@@ -1,0 +1,13 @@
+BUNDLE INCLUDES TRAINED CHECKPOINT AND TWO RTL DEMOS
+====================================================
+1) vgg6_cifar10.pth : trained full six-convolution PyTorch model.
+2) full_conv1/ : serial RTL for entire raw Conv1 convolution, 64 filters,
+                 with generated Q16.16 test input, weights, biases, golden outputs,
+                 Verilog testbench and Vivado/Icarus commands.
+3) rtl_quickstart/ : earlier single-filter 27-term MAC demo.
+4) cnn_original.py : original training script for reference (needs CIFAR dataset to train).
+
+FIRST: cd full_conv1 ; open README_START_HERE.txt
+NEXT: run Icarus or Vivado simulation; start with one filter, then all 64 filters.
+NOTE: This is Conv1 RAW CONVOLUTION ONLY, without BN1 and ReLU. It is Q16.16 fixed point, not FP32.
+NOTE: Simulation is not hardware deployment; the Artix-7 part and capture board matter.
